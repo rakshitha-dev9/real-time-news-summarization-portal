@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap');
+
+/* --- GLOBAL FIXES --- */
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    /* FIX: Set body background to dark blue so edges blend in during transition */
+    background-color: #0f172a; 
+}
+.font-reading { font-family: 'Merriweather', serif; }
+
+/* --- ANIMATIONS --- */
+
+/* 1. Pulse */
+@keyframes introPulse {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* 2. The Tunnel Zoom */
+@keyframes warpTunnel {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(4000); opacity: 1; }
+}
+
+/* 3. The Landing (Modified to prevent white edges) */
+@keyframes softLanding {
+    /* We start at scale 1.05 (Zoomed IN) and go to 1. 
+       This prevents white borders because it's always larger than screen. */
+    from { opacity: 0; transform: scale(1.05); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-appear { animation: introPulse 1.5s ease-out forwards; }
+
+.animate-warp { 
+    transform-origin: center; /* JS updates this */
+    animation: warpTunnel 1.5s cubic-bezier(0.7, 0, 0.2, 1) forwards; 
+    background-color: transparent; 
+}
+
+.animate-land { animation: softLanding 1s ease-out forwards; }
+
+/* UI Utilities */
+.image-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 100%); }
+.active-tab { color: #2563eb; border-bottom: 2px solid #2563eb; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

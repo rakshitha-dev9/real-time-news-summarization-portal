@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # 1. MongoDB (Database)
+  mongo:
+    image: mongo:latest
+    container_name: news_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # 2. RabbitMQ (Message Queue)
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: news_rabbitmq
+    ports:
+      - "5672:5672"   # For code
+      - "15672:15672" # For browser dashboard
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  # 3. Redis (Cache)
+  redis:
+    image: redis:alpine
+    container_name: news_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:

@@ -1,0 +1,9 @@
+{
+  "output": {
+    "file_path": "myproject.txt"
+  },
+  "include": ["src/**/*", "app/**/*", "README.md"],
+  "ignore": ["venv/**", ".git/**", "node_modules/**", "**/*.env", "**/*.log"]
+}
+
+
