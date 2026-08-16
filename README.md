@@ -15,6 +15,7 @@ For each new article, it:
 4. Stores the processed result in MongoDB, tagged by category and source
 
 Users can browse summarized news by category and **bookmark articles** they want to keep — bookmarked articles are protected from the automatic 24-hour cleanup that clears out old, unbookmarked news.
+![NewsAI portal — category feed with sentiment tags and bookmarking](assets/demo.png)
 
 ---
 
